@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Console appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Set the root logger to INFO to capture important logs -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- Set specific loggers to ERROR to reduce log noise from Camel and other frameworks -->
+    <logger name="org.apache.camel" level="ERROR" />
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="org.apache.http" level="ERROR" />
+    <logger name="com.amazonaws" level="ERROR" />
+
+    <!-- Set your specific test package or class to DEBUG or TRACE if needed -->
+    <logger name="com.example" level="DEBUG" />
+
+</configuration>
